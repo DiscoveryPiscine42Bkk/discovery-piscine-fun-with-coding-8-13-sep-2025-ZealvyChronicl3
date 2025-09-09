@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basics</title>
+    <style>
+        body {
+            margin: auto;
+            width: 90%;
+            padding: 1%;
+            background-color: pink;
+            font-size: larger;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            justify-items: center;
+        }
+
+        .card {
+            width: 80%;
+            text-align: center;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .copyright {
+            text-align: right;
+            font-style: italic;
+            font-family: monospace;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="text-align: center; color: white;">
+        <h1>@ My Online Shops !</h1>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <img src="myshop1.png" alt="Shop 1">
+            <a href="https://www.amazon.com/" target="_blank">Amazon</a>
+        </div>
+        <div class="card">
+            <img src="myshop2.png" alt="Shop 2">
+            <a href="https://www.inthanincoffee.com/" target="_blank">Inthanin Coffee</a>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="copyright">
+        © wil 2025
+    </div>
+</body>
+
+</html>
