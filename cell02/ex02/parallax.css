@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: larger;
+}
+
+.one {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("eueicat.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.two {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    height: 30vh;
+    color: aliceblue
+    ;
+}
+
+.three {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("handsomecat.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}

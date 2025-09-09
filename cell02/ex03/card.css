@@ -1,0 +1,66 @@
+/* Reset พื้นฐาน */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ทำให้ body เป็น flex container เพื่อจัดทุกอย่างตรงกลาง */
+body {
+    display: flex;
+    flex-direction: column;
+    /* จัดแนวตั้ง */
+    justify-content: center;
+    /* จัดแนวตั้ง */
+    align-items: center;
+    /* จัดแนวนอน */
+    min-height: 100vh;
+    /* ให้เต็มหน้าจอแนวตั้ง */
+    background-color: #f0f0f0;
+    /* ตัวอย่างพื้นหลัง */
+
+    /* เงาการ์ด */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* เงาเล็ก */
+    transition: all 0.3s ease;
+    /* สำหรับ effect hover */
+}
+
+/* รูปภาพ */
+.picturesize {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    /* เว้นช่องว่างด้านล่าง */
+}
+
+.widthpic {
+    width: 75%;
+    height: 40vh;
+}
+
+/* บล็อกเนื้อหา */
+.block {
+    background-color: rgb(255, 255, 255);
+    width: 27.5%;
+    height: auto;
+    /* ให้ปรับตามเนื้อหา */
+    padding: 20px;
+    border: 0.1px solid rgb(255, 208, 208);
+    text-align: center;
+    /* ข้อความอยู่ตรงกลางบล็อก */
+    /* border-radius: 10%; */
+}
+
+/* ข้อความ h1 */
+.h1size {
+    color: rgb(0, 0, 202);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* ข้อความ p */
+.psize {
+    width: 100%;
+    text-align: center;
+}
