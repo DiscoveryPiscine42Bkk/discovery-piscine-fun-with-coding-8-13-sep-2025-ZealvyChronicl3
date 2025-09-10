@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do or not to do</title>
+    <link rel="stylesheet" href="todo.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <h1 style="color: navy;">My To-Do List🚨</h1>
+        <div id="ft_list"></div>
+        <div style="padding-top: 3%;">
+            <button id="newBtn">New</button>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // ฟังก์ชันจัดการ cookie
+            function setCookie(name, value, days) {
+                const d = new Date();
+                d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+                document.cookie = name + "=" + encodeURIComponent(value) + ";expires=" + d.toUTCString() + ";path=/";
+            }
+
+            function getCookie(name) {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    let c = cookies[i].trim();
+                    if (c.indexOf(name + "=") === 0) {
+                        return decodeURIComponent(c.substring(name.length + 1));
+                    }
+                }
+                return "";
+            }
+
+            // โหลด TO DO จาก cookie
+            function loadTodos() {
+                const todoList = getCookie("todoList");
+                if (todoList) {
+                    const todos = todoList.split("|");
+                    todos.forEach(todo => addTodoDiv(todo, false));
+                }
+            }
+
+            // บันทึก TO DO ลง cookie
+            function saveTodos() {
+                const todos = [];
+                $('#ft_list .todo').each(function() {
+                    todos.push($(this).text());
+                });
+                setCookie("todoList", todos.join("|"), 365);
+            }
+
+            // สร้าง TO DO ใหม่
+            function addTodoDiv(text, save = true) {
+                const div = $('<div></div>').addClass('todo').text(text);
+
+                div.click(function() {
+                    if (confirm("Do you want to remove this TO DO?")) {
+                        div.remove();
+                        saveTodos();
+                    }
+                });
+
+                // เพิ่มบนสุด
+                $('#ft_list').prepend(div);
+
+                if (save) saveTodos();
+            }
+
+            // ปุ่ม New
+            $('#newBtn').click(function() {
+                const todoText = prompt("Enter a new TO DO:");
+                if (todoText && todoText.trim() !== "") {
+                    addTodoDiv(todoText.trim());
+                }
+            });
+
+            // โหลด TO DO ตอนเปิดหน้า
+            loadTodos();
+        });
+    </script>
+</body>
+</html>

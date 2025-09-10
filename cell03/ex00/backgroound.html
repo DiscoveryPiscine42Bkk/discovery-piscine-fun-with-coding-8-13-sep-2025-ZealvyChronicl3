@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change background</title>
+    <link rel="stylesheet" href="backgroound.css">
+</head>
+
+<body>
+    <div class="center">
+        <div>
+            <button id="click">Click me!</button>
+        </div>
+    </div>
+
+    <script>
+        const btn = document.getElementById('click');
+
+        function changebackgroud() {
+            const color = '#' + Math.floor(Math.random() * 16777215).toString(16);
+            document.body.style.backgroundColor = color;
+        }
+
+        btn.addEventListener('click', changebackgroud)
+    </script>
+</body>
+
+</html>

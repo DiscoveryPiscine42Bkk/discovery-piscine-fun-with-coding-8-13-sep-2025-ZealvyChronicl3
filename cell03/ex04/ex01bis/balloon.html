@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explode this balloon</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    #balloon {
+        background-color: red;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+    }
+
+    .center {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+<body>
+    <div class="center">
+        <div id="balloon"></div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            const $balloon = $('#balloon');
+            let color = ['red', 'green', 'blue'];
+            let col_dex = 0;
+            let size = 200;
+
+            function changebigcol() {
+                col_dex = (col_dex + 1) % color.length;
+                $balloon.css('background-color', color[col_dex]);
+
+                size += 10;
+                if (size > 420) {
+                    size = 200;
+                    col_dex = 0;
+                    $balloon.css('background-color', color[col_dex]);
+                }
+
+                $balloon.css({
+                    width: size + 'px',
+                    height: size + 'px'
+                });
+            }
+
+            function mirecol() {
+                size = Math.max(200, size - 5);
+                $balloon.css({
+                    width: size + 'px',
+                    height: size + 'px'
+                });
+
+                col_dex = (col_dex - 1 + color.length) % color.length;
+                $balloon.css('background-color', color[col_dex]);
+            }
+
+            $balloon.on('click', changebigcol);
+            $balloon.on('mouseleave', mirecol);
+        });
+    </script>
+</body>
+
+</html>
